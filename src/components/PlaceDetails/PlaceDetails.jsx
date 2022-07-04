@@ -14,7 +14,6 @@ import PhoneIcon from "@material-ui/icons/Phone";
 import Rating from "@material-ui/lab/Rating";
 import useStyles from "./styles.js";
 const PlaceDetails = ({ place }) => {
-  console.log(place.cuisine);
   const classes = useStyles();
   return (
     <Card elevation={6}>
@@ -24,7 +23,7 @@ const PlaceDetails = ({ place }) => {
         image={
           place.photo
             ? place.photo.images.large.url
-            : "https://source.unsplash.com/random"
+            : "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
         }
         title={place.name}
       />
@@ -32,6 +31,17 @@ const PlaceDetails = ({ place }) => {
         <Typography gutterBotton variant="h5" component="h2">
           {place.name}
         </Typography>
+        <Box display="flex" justifyContent="space-between">
+          <Rating
+            name="read-only"
+            size="small"
+            value={Number(place.rating)}
+            readOnly
+          />
+          <Typography gutterBottom variant="subtitle1">
+            de {place.num_reviews} personas
+          </Typography>
+        </Box>
         <Box display="flex" justifyContent="space-between">
           <Typography variant="subtitle1" color="textSecondary">
             Precio

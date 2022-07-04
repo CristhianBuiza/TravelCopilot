@@ -11,7 +11,7 @@ import {
   Select,
 } from "@material-ui/core";
 
-const List = ({ places }) => {
+const List = ({ places, childClicked }) => {
   const classes = useStyles();
   const [type, setType] = React.useState("restaurants");
   const [rating, setRating] = React.useState(0);
